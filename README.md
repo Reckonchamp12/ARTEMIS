@@ -1,4 +1,4 @@
-# ARTEMIS: Adaptive Real-Time Market Intelligence System
+# ARTEMIS: Arbitrage‑free Representation Through Economic Models & Interpretable Symbolics
 
 A hybrid deep learning architecture for financial time-series forecasting that combines neural SDEs, Mamba-style state space models, and physics-informed constraints.
 
@@ -29,12 +29,22 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 | **Time-IMM EPA-Air** | Next-hour temperature regression | RMSE, RankIC, Delta Dir Acc, Weighted R² |
 | **Jane Street** | Return prediction (regression) | RMSE, RankIC, Directional Acc, Weighted R² |
 
-> ℹ️ **Club Loan dataset benchmarks are excluded from this release.**
 
 ---
 
 ## Benchmark Results
 
+### Jane Street – Return Prediction (Test Set)
+
+| Model | RMSE ↓ | RankIC ↑ | Directional Acc ↑ | Weighted R² ↑ |
+|-------|--------|----------|-------------------|---------------|
+| LSTM | 0.7628 | 0.0378 | 0.5159 | 0.0020 |
+| Transformer | 0.7635 | 0.0122 | 0.5337 | -0.0002 |
+| NS‑Transformer | 2.6034 | 0.0031 | 0.5009 | — |
+| Informer | 0.7862 | 0.0083 | 0.4739 | -0.0008 |
+| **ARTEMIS** | 0.7762 | 0.0432 | 0.5150 | -0.0009 |
+| Chronos‑2 | 1.4043 | 0.1325 | 0.5372 | -1.4578 |
+| XGBoost | 0.7858 | 0.0142 | 0.5117 | 0.0007 |
 ### Optiver — Realized Volatility (Test Set)
 
 | Model | RMSE ↓ | RankIC ↑ | Dir. Acc ↑ | Weighted R² ↑ |
@@ -75,33 +85,7 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 
 ## ARTEMIS Architecture
 
-```
-Input (N, T, D)
-     │
-     ▼
-┌─────────────────────────────┐
-│    Time Encoder             │
-│  LOB features + mask +      │
-│  Fourier time basis → Z     │
-│  (N, T, L)                  │
-└────────────┬────────────────┘
-             │
-             ▼
-┌─────────────────────────────┐
-│  Neural SDE (Euler-Maruyama)│
-│  dZ = μ(Z,t)dt + σ(Z,t)dW  │
-│  μ: drift network           │
-│  σ: diffusion network       │
-└────────────┬────────────────┘
-             │
-             ▼
-┌─────────────────────────────┐
-│  Prediction Head            │
-│  Z_sde[:, -1] → Linear → ŷ │
-└─────────────────────────────┘
-
-Loss = MSE + λ_PDE · L_PDE + λ_MPR · L_MPR + λ_cons · L_consistency
-```
+![ARTEMIS Architecture](Assets/artemis_architecture.gif)
 
 **Key components:**
 
@@ -198,7 +182,7 @@ python benchmarks/run_optiver.py --ablation --model artemis
 
 ```bibtex
 @misc{artemis2025,
-  title  = {ARTEMIS: Adaptive Real-Time Market Intelligence System},
+  title  = {ARTEMIS: Arbitrage‑free Representation Through Economic Models & Interpretable Symbolics},
   year   = {2025},
   note   = {GitHub repository}
 }
