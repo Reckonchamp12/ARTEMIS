@@ -1,0 +1,44 @@
+# configs/crypto_lob.yaml
+# Hyperparameters for the Crypto LOB direction prediction benchmark.
+
+dataset:
+  name: crypto_lob
+  seq_len: 40          # 40 LOB snapshot look-back
+  n_features: 40       # 10 bid levels × (price + size) + 10 ask levels × (price + size)
+  task: classification
+
+training:
+  epochs: 30
+  batch_size: 512
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+  patience: 5
+  scheduler: cosine
+
+artemis:
+  d_model: 64
+  n_heads: 4
+  n_layers: 2
+  dropout: 0.1
+  lambda_pde: 0.05
+  lambda_mpr: 0.02
+  lambda_cons: 0.01
+
+baselines:
+  lstm:
+    hidden: 64
+    n_layers: 2
+    dropout: 0.1
+  transformer:
+    d_model: 64
+    n_heads: 4
+    n_layers: 2
+    dropout: 0.1
+  xgboost:
+    n_estimators: 500
+    max_depth: 5
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    use_label_encoder: false
+    eval_metric: logloss

@@ -1,0 +1,42 @@
+# configs/optiver.yaml
+# Hyperparameters for the Optiver Realized Volatility benchmark.
+# These values were selected via grid search on the validation split.
+
+dataset:
+  name: optiver
+  seq_len: 20          # 20 × 10-second buckets = 200s look-back
+  n_features: 16       # time + vol + trade features per bucket
+
+training:
+  epochs: 60
+  batch_size: 512
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+  patience: 8
+  scheduler: cosine
+
+artemis:
+  d_model: 64
+  n_heads: 4
+  n_layers: 2
+  dropout: 0.1
+  lambda_pde: 0.10
+  lambda_mpr: 0.05
+  lambda_cons: 0.02
+
+baselines:
+  lstm:
+    hidden: 64
+    n_layers: 2
+    dropout: 0.1
+  transformer:
+    d_model: 64
+    n_heads: 4
+    n_layers: 2
+    dropout: 0.1
+  xgboost:
+    n_estimators: 1000
+    max_depth: 6
+    learning_rate: 0.02
+    subsample: 0.8
+    colsample_bytree: 0.8

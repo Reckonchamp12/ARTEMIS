@@ -1,0 +1,44 @@
+# configs/janestreet.yaml
+# Hyperparameters for the Jane Street forward return prediction benchmark.
+
+dataset:
+  name: janestreet
+  seq_len: 20          # 20-step feature look-back
+  n_features: 130      # anonymised financial signals
+  task: regression
+  target: resp
+
+training:
+  epochs: 50
+  batch_size: 512
+  lr: 2.0e-4
+  weight_decay: 1.0e-4
+  patience: 7
+  scheduler: onecycle
+
+artemis:
+  d_model: 128
+  n_heads: 8
+  n_layers: 3
+  dropout: 0.15
+  lambda_pde: 0.05
+  lambda_mpr: 0.02
+  lambda_cons: 0.01
+
+baselines:
+  lstm:
+    hidden: 128
+    n_layers: 3
+    dropout: 0.15
+  transformer:
+    d_model: 128
+    n_heads: 8
+    n_layers: 3
+    dropout: 0.15
+  xgboost:
+    n_estimators: 1000
+    max_depth: 6
+    learning_rate: 0.02
+    subsample: 0.8
+    colsample_bytree: 0.8
+    tree_method: hist
