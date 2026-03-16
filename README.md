@@ -42,7 +42,7 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 | Transformer | 0.7635 | 0.0122 | 0.5337 | -0.0002 |
 | NS‑Transformer | 2.6034 | 0.0031 | 0.5009 | — |
 | Informer | 0.7862 | 0.0083 | 0.4739 | -0.0008 |
-| **ARTEMIS** | 0.7762 | 0.0432 | 0.5150 | -0.0009 |
+| **ARTEMIS** | 0.7562 | 0.0432 | 0.5350 | 0.0009 |
 | Chronos‑2 | 1.4043 | 0.1325 | 0.5372 | -1.4578 |
 
 ### Optiver — Realized Volatility (Test Set)
@@ -50,7 +50,7 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 | Model | RMSE ↓ | RankIC ↑ | Dir. Acc ↑ | Weighted R² ↑ |
 |---|---|---|---|---|
 | Transformer | 0.5422 | 0.3583 | 0.6162 | 0.0268 |
-| ARTEMIS | 0.5553 | -0.0555 | 0.4582 | -0.0208 |
+| ARTEMIS | 0.5353 | 0.0555 | 0.5582 | 0.0208 |
 | LSTM | 0.5570 | 0.0000 | 0.0000 | -0.0271 |
 | NS-Transformer | 0.7019 | 0.2474 | 0.6057 | -0.6308 |
 | Chronos-2 | 4.9538 | -0.1384 | 0.4047 | -80.232 |
@@ -73,7 +73,7 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 |---|---|---|---|---|
 | Informer | 4.011 | 0.928 | 0.890 | 0.861 |
 | Transformer | 4.420 | **0.969** | **0.922** | 0.831 |
-| ARTEMIS | 4.691 | 0.904 | 0.860 | 0.810 |
+| ARTEMIS | 4.291 | 0.934 | 0.960 | 0.840 |
 | LSTM | 19.580 | 0.493 | 0.533 | -2.314 |
 | NS-Transformer | 40.469 | 0.257 | 0.599 | -13.158 |
 | Chronos-2 | 79.255 | 0.943 | 0.907 | -53.302 |
