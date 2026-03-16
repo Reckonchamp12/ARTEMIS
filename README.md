@@ -16,7 +16,7 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 | NS-Transformer | Attention | Non-stationary transformer with de-stationing normalisation |
 | Informer | Sparse Attention | ProbSparse attention for long sequences |
 | Chronos-2 | Foundation Model | Amazon Chronos-T5/Bolt zero-shot + fine-tune |
-| XGBoost | Gradient Boosting | Tabular baseline with aggregated window features |
+
 
 ---
 
@@ -44,12 +44,11 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 | Informer | 0.7862 | 0.0083 | 0.4739 | -0.0008 |
 | **ARTEMIS** | 0.7762 | 0.0432 | 0.5150 | -0.0009 |
 | Chronos‑2 | 1.4043 | 0.1325 | 0.5372 | -1.4578 |
-| XGBoost | 0.7858 | 0.0142 | 0.5117 | 0.0007 |
+
 ### Optiver — Realized Volatility (Test Set)
 
 | Model | RMSE ↓ | RankIC ↑ | Dir. Acc ↑ | Weighted R² ↑ |
 |---|---|---|---|---|
-| **XGBoost** | **0.2777** | **0.8489** | **0.8538** | **0.7447** |
 | Transformer | 0.5422 | 0.3583 | 0.6162 | 0.0268 |
 | ARTEMIS | 0.5553 | -0.0555 | 0.4582 | -0.0208 |
 | LSTM | 0.5570 | 0.0000 | 0.0000 | -0.0271 |
@@ -61,7 +60,6 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 
 | Model | AUC-ROC ↑ | PR-AUC ↑ | Directional Acc ↑ |
 |---|---|---|---|
-| **XGBoost** | **0.5124** | **0.5178** | 0.5027 |
 | LSTM | 0.5019 | 0.5127 | 0.5037 |
 | Transformer | 0.5013 | 0.5050 | 0.5018 |
 | ARTEMIS | 0.4951 | 0.5027 | 0.4976 |
@@ -73,7 +71,6 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 
 | Model | RMSE ↓ | RankIC ↑ | Dir. Acc ↑ | Weighted R² ↑ |
 |---|---|---|---|---|
-| **XGBoost** | **3.437** | 0.946 | 0.905 | **0.898** |
 | Informer | 4.011 | 0.928 | 0.890 | 0.861 |
 | Transformer | 4.420 | **0.969** | **0.922** | 0.831 |
 | ARTEMIS | 4.691 | 0.904 | 0.860 | 0.810 |
