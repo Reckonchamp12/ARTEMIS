@@ -2,7 +2,10 @@
 
 A hybrid deep learning architecture for financial time-series forecasting that combines neural SDEs, Mamba-style state space models, and physics-informed constraints.
 
----
+--
+![ARTEMIS Architecture](Assets/ablation_radar.png)
+![ARTEMIS Architecture](Assets/ablation_loss_curves.png)
+![ARTEMIS Architecture](Assets/ablation_scatter_compare.png)-
 
 ## Overview
 
@@ -80,11 +83,8 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 
 ---
 
-## ARTEMIS Architecture
 
-![ARTEMIS Architecture](Assets/ablation_radar.png)
-![ARTEMIS Architecture](Assets/ablation_loss_curves.png)
-![ARTEMIS Architecture](Assets/ablation_scatter_compare.png)
+
 
 **Key components:**
 
