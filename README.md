@@ -82,7 +82,9 @@ ARTEMIS is benchmarked against 6 baselines across multiple financial datasets:
 
 ## ARTEMIS Architecture
 
-![ARTEMIS Architecture](Assets/artemis.png)
+![ARTEMIS Architecture](Assets/absolute_radar.png)
+![ARTEMIS Architecture](Assets/absolute_loss_curves.png)
+![ARTEMIS Architecture](Assets/absolute_scatter_compare.png)
 
 **Key components:**
 
